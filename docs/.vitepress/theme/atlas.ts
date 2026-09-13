@@ -1,5 +1,17 @@
 export const atlasVendors = [
   {
+    id: 'amd',
+    name: 'AMD',
+    status: '已开放',
+    title: '一条时间线，纵览架构演进。',
+    description: '从早期 Radeon、TeraScale、GCN，到 RDNA、CDNA 与 Ryzen 核显；沿统一时间线由整卡逐层深入封装、芯片阵列与计算单元。',
+    detail: '统一时间线 · 芯片拓扑 · 性能演进',
+    href: '/atlas/amd/',
+    action: '开始探索',
+    standalone: true,
+    preview: { src: '/atlas-previews/amd-rx9070xt.webp', width: 1200, height: 700 },
+  },
+  {
     id: 'nvidia',
     name: 'NVIDIA',
     status: '已开放',
@@ -9,16 +21,6 @@ export const atlasVendors = [
     href: '/atlas/nvidia/',
     action: '开始探索',
     standalone: true,
-  },
-  {
-    id: 'amd',
-    name: 'AMD',
-    status: '交互图谱筹备中',
-    title: '从熟悉的 GPU，继续深入。',
-    description: '从教程主线的 RDNA 出发，逐步扩展到 CDNA。先读懂执行模型与片上资源。',
-    detail: 'RDNA 优先建设 · CDNA 后续扩展',
-    href: '/atlas/amd/',
-    action: '查看 AMD 专区',
-    standalone: false,
+    preview: { src: '/atlas-previews/nvidia-rtx5090.webp', width: 1497, height: 1244 },
   },
 ] as const

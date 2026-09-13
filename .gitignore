@@ -13,6 +13,9 @@ package-lock.json
 apps/gpu-atlas/nvidia/*
 !apps/gpu-atlas/nvidia/index.html
 docs/public/atlas/nvidia/
+apps/gpu-atlas/amd/*
+!apps/gpu-atlas/amd/index.html
+docs/public/atlas/amd/
 
 # uv
 .venv/

@@ -11,19 +11,10 @@ defineProps<{ compact?: boolean }>()
       :href="withBase(vendor.href)" :target="vendor.standalone ? '_self' : undefined">
       <div class="hg-atlas-vendor-identity">
         <span class="hg-atlas-vendor-name">{{ vendor.name }}</span>
-        <span class="hg-atlas-vendor-status"><i v-if="vendor.id === 'nvidia'" aria-hidden="true" />{{ vendor.status }}</span>
+        <span class="hg-atlas-vendor-status"><i aria-hidden="true" />{{ vendor.status }}</span>
       </div>
       <div class="hg-atlas-vendor-art" aria-hidden="true">
-        <img v-if="vendor.id === 'nvidia'" :src="withBase('/atlas-previews/nvidia-rtx5090.webp')" width="1497" height="1244" alt="" loading="lazy" decoding="async">
-        <div v-else class="hg-atlas-planned-art">
-          <svg viewBox="0 0 320 230" fill="none">
-            <path d="m160 22 126 70-126 70L34 92Z" />
-            <path d="m34 126 126 70 126-70M34 159l126 70 126-70" />
-            <path d="m85 92 75-42 75 42-75 42Z" />
-            <path d="M160 162v66M34 92v67M286 92v67" stroke-dasharray="3 6" />
-          </svg>
-          <span>RDNA <i>/</i> CDNA</span>
-        </div>
+        <img :src="withBase(vendor.preview.src)" :width="vendor.preview.width" :height="vendor.preview.height" alt="" loading="lazy" decoding="async">
       </div>
       <div class="hg-atlas-vendor-copy">
         <h3>{{ vendor.title }}</h3>
@@ -105,41 +96,6 @@ defineProps<{ compact?: boolean }>()
   object-fit: contain;
 }
 
-.hg-atlas-planned-art {
-  position: relative;
-  width: 270px;
-  height: 210px;
-  color: var(--vp-c-brand-1);
-}
-
-.hg-atlas-planned-art svg {
-  width: 100%;
-  height: 100%;
-  stroke: currentColor;
-  stroke-width: 1;
-  opacity: .55;
-}
-
-.hg-atlas-planned-art > span {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  font: 11px var(--vp-font-family-mono);
-  letter-spacing: .12em;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-  padding-top: 8px;
-}
-
-.hg-atlas-planned-art i {
-  font-style: normal;
-  color: var(--vp-c-text-3);
-  margin: 0 12px;
-}
-
 .hg-atlas-vendor-copy {
   display: flex;
   flex-direction: column;
@@ -202,15 +158,6 @@ defineProps<{ compact?: boolean }>()
   height: 190px;
   margin: 0;
   pointer-events: none;
-}
-
-.is-compact .hg-atlas-planned-art {
-  width: 180px;
-  height: 160px;
-}
-
-.is-compact .hg-atlas-planned-art > span {
-  display: none;
 }
 
 .is-compact .hg-atlas-vendor-copy {
